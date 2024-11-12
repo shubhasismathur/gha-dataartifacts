@@ -26,9 +26,9 @@ jobs:
         run: npm ci
       - name: Build website
         run: npm run build
-      - uses: actions/download-artifact@v4
+      - uses: actions/upload-artifact@v4
         with:
-          name: download artifacts
+          name: upload artifacts
           path: |
             dist
             vite.config.js

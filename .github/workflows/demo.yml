@@ -26,10 +26,9 @@ jobs:
         run: npm ci
       - name: Build website
         run: npm run build
-        steps: 
-          - name: Cache node modules
-            uses: actions/cache@v3
-            with:
+      - name: Cache node modules
+        uses: actions/cache@v3
+           with:
               path: ~/.npm
               key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
       - name: upload artifacts

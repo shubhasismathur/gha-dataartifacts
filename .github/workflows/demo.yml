@@ -26,7 +26,8 @@ jobs:
         run: npm ci
       - name: Build website
         run: npm run build
-      - uses: actions/upload-artifact@v4
+      - name: upload artifacts
+        uses: actions/upload-artifact@v4
         with:
           name: test-artifact
           path: dist

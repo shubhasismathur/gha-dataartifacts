@@ -15,12 +15,7 @@ jobs:
         run: npm run lint
       - name: Test code
         run: npm run test
-      - uses: actions/download-artifact@v4
-        with:
-          name: download artifacts
-          path: |
-            dist
-            vite.config.js
+      
   build:
     needs: test
     runs-on: ubuntu-latest
@@ -31,6 +26,12 @@ jobs:
         run: npm ci
       - name: Build website
         run: npm run build
+      - uses: actions/download-artifact@v4
+        with:
+          name: download artifacts
+          path: |
+            dist
+            vite.config.js
   deploy:
     needs: build
     runs-on: ubuntu-latest
